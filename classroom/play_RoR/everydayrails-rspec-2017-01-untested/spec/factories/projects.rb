@@ -7,7 +7,7 @@ FactoryBot.define do
   end
 
   # 昨日が締め切りのプロジェクト
-  factory :project_duo_yesterday, class: Project do
+  factory :project_due_yesterday, class: Project do
     sequence(:name){|n| "Project #{n}"}
     description "A test project"
     due_on 1.day.ago
@@ -15,7 +15,7 @@ FactoryBot.define do
   end
 
   # 今日が締め切りのプロジェクト
-  factory :project_duo_today, class: Project do
+  factory :project_due_today, class: Project do
     sequence(:name){|n| "Project #{n}"}
     description "A test project"
     due_on Date.current.in_time_zone
@@ -23,7 +23,7 @@ FactoryBot.define do
   end
 
   # 明日が締め切りのプロジェクト
-  factory :project_duo_tomorrow, class: Project do
+  factory :project_due_tomorrow, class: Project do
     sequence(:name){|n| "Project #{n}"}
     description "A test project"
     due_on 1.day.from_now
