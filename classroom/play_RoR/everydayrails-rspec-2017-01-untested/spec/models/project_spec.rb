@@ -4,18 +4,8 @@ RSpec.describe Project, type: :model do
 
   # ユーザー単位では重複したプロジェクト名を許可しないこと
   it "does not allow duplicate project names per user" do
-    user = User.create(
-      first_name: "Katuo",
-      last_name: "Isono",
-      email: "tester@example.com",
-      password: "dottle-nouveau-pavilion-tights-furze"
-    )
-
-    user.projects.create(
-      name: "Test Project"
-    )
-
-    new_project = user.projects.build(
+    project = FactoryBot.create(:project, name: "Test Project")
+    new_project = project.owner.projects.build(
       name: "Test Project"
     )
 
@@ -25,25 +15,8 @@ RSpec.describe Project, type: :model do
 
   # 二人のユーザーが同じ名前を使うことは許可する
   it "allows two users to share a project name" do
-    user = User.create(
-      first_name: "Katuo",
-      last_name: "Isono",
-      email: "katuo@example.com",
-      password: "dottle-nouveau-pavilion-tights-furze"
-    )
-    user.projects.create(
-      name: "Test Project"
-    )
-
-    other_user = User.create(
-      first_name: "Namihey",
-      last_name: "Isono",
-      email: "namihey@example.com",
-      password: "dottle-nouveau-pavilion-tights-furze"
-    )
-    other_project = other_user.projects.build(
-      name: "Test Project"
-    )
+   FactoryBot.create(:project, name: "Test Project")
+   other_project = FactoryBot.build(:project, name: "Test Project")
 
     expect(other_project).to be_valid
   end
