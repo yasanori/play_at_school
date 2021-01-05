@@ -8,7 +8,7 @@ RSpec.feature "SignIns", type: :feature do
   end
 
   # ユーザーのログイン
-  acenario "user signs in" do
+  scenario "user signs in" do
     visit root_path
     click_link "Sign In"
     fill_in "Email", with: user.email
