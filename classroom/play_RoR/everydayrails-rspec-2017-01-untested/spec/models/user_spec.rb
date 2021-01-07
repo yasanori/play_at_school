@@ -53,4 +53,4 @@ RSpec.describe User, type: :model do
     user = FactoryBot.create(:user)
     expect(UserMailer).to have_received(:welcome_email).with(user)
   end
-end
+end　
