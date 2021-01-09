@@ -1,8 +1,8 @@
-import React, { component } from 'react';
 
 function App() {
+  const helloWorldJa = <h1>こんにちは,世界。</h1>
   return (
-    <h1>Hello, world!</h1>
+    <h1>{helloWorldJa}</h1>
   );
 }
 
