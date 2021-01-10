@@ -1,27 +1,26 @@
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
-const App = () => {
-  const helloWorldJa = <h1>こんにちは,世界。</h1>
-  const profiles = [
-    { name: "Taro", age: 25 },
-    { name: "Hanako", age: 22 },
-    { name: "No name", age: 100 }
-  ]
-  return (
-    <>
-      {helloWorldJa}
-      {profiles.map((profile, index) => { return <User name={profile.name} age={profile.age} key={index} /> })}
-    </>
-  );
+import { increment, decrement } from '../actions'
+
+class App extends Component {
+  render() {
+    const props = this.props
+
+    return (
+      <>
+        <div>value: {props.value}</div>
+        <button onClick={props.increment}>+1</button>
+        <button onClick={props.decrement}>-1</button>
+      </>
+    );
+  }
 }
 
-const User = (props) => {
-  return <div>Hi, I am {props.name} and {props.age} years old.</div>
-}
+const mapStateToProps = state => ({ value: state.count.value })
+const mapDispatchToProps = ({ increment, decrement })
 
-User.propTypes = {
-  name: PropTypes.string,
-  age: PropTypes.number.isRequired
-}
 
-export default App;
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
