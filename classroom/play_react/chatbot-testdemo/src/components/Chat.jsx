@@ -7,7 +7,7 @@ import You from '../assets/img/IMG_6431.png'
 
 const Chat = (props) => {
   const isQuestion = (props.type === 'question')
-  const classes = isQuestion ? 'p-chat_row' : 'p-chat_reverse'
+  const classes = isQuestion ? 'p-chat_row' : 'p-chat__reverse'
 
   return (
     <ListItem className={classes}>
