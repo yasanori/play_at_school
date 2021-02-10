@@ -1,7 +1,7 @@
 import {
   createStore as reduxCreateStore,
-  combineReducers,
-} from 'redux;'
+  combineReducers
+} from 'redux';
 
 import { UsersReducer } from '../users/reducers';
 
