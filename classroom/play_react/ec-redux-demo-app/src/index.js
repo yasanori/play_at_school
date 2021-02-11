@@ -8,8 +8,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-export history = History.createBrowserHistory();
-export const store = createStore();
+export const history = History.createBrowserHistory();
+export const store = createStore(history);
 
 ReactDOM.render(
   <Provider store={store}>

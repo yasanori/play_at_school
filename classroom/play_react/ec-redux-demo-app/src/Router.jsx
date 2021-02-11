@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
-import { Login, Home } from 'templates';
+import { Login, Home } from './templates';
 
 function Router() {
   return (
