@@ -1,9 +1,12 @@
 import React from 'react'
 
-export const Foods = () => {
+export const Foods = ({ match }) => {
   return (
-    <div>
+    <>
       フード一覧
-    </div>
+      <p>
+        restaurantsIdは{match.params.restaurantsId}です
+      </p>
+    </>
   )
 }
