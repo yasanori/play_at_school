@@ -1,5 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import styled from 'styled-components';
+
+import { initialState, restaurantsActionTypes, restaurantsReducer } from '../reducers/restaurants'
 
 import { fetchRestaurants } from '../apis/restaurants';
 
@@ -26,10 +28,19 @@ const MainCover = styled.img`
 
 
 export const Restaurants = () => {
+  const [state, dispatch] = useReducer(restaurantsReducer, initialState)
 
   useEffect(() => {
+    dispatch({ type: restaurantsActionTypes.FETCHING });
     fetchRestaurants()
-      .then(data => console.log(data))
+      .then(data => {
+        dispatch({
+          type: restaurantsActionTypes.FETCH_SUCCESS,
+          payload: {
+            restaurants: data.restaurants
+          }
+        })
+      })
   }, [])
 
   return (
@@ -40,6 +51,13 @@ export const Restaurants = () => {
       <MainCoverImageWrapper>
         <MainCover src={MainCoverImage} alt="main cover" />
       </MainCoverImageWrapper>
+      {
+        state.restaurantsList.map(restaurant =>
+          <div key={restaurant.id}>
+            {restaurant.name}
+          </div>
+        )
+      }
     </>
   )
 }
