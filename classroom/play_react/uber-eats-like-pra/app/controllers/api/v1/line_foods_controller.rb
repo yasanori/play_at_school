@@ -8,10 +8,10 @@ class Api::V1::LineFoodsController < ApplicationController
         line_food_ids: line_foods.map{ |line_food| line_food.id },
         restaurant: line_foods[0].restaurant,
         count: line_foods.sum { |line_food| line_food[:count] },
-        amount:　line_foods.sum { |line_food| line_food.total_amount }
+        amount: line_foods.sum { |line_food| line_food.total_amount }
       }, status: 200
     else
-      render json: {}, status: :no_countent
+      render json: {}, status: :no_content
     end
   end
 
