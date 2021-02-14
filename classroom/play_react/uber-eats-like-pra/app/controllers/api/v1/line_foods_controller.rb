@@ -16,7 +16,7 @@ class Api::V1::LineFoodsController < ApplicationController
   end
 
   def create
-    if LineFood.active.other_restaurant(@ordered_food.restarant.id).exits?
+    if LineFood.active.other_restaurant(@ordered_food.restaurant.id).exists?
       return render json: {
         existing_restaurant: LineFood.other_restaurant(@ordered_food.restaurant.id).first.restaurant.name,
         new_restaurant: Food.find(params[:food_id]).restaurant.name,
@@ -59,7 +59,7 @@ class Api::V1::LineFoodsController < ApplicationController
     if ordered_food.line_food.present?
       @line_food = ordered_food.line_food
       @line_food.attributes = {
-        count: ordered_food.line_food.count + params[:count]
+        count: ordered_food.line_food.count + params[:count],
         active: true
       }
     else
