@@ -2,20 +2,14 @@ import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux';
 
 import { TextInput, PrimaryButton } from '../components/Uikit';
-import { signUp } from '../reducks/users/operations';
+import { signIn } from '../reducks/users/operations';
 
-const SignUp = () => {
+const SignIn = () => {
 
   const dispatch = useDispatch()
 
-  const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-
-  const inputUsername = useCallback((event) => {
-    setUsername(event.target.value)
-  }, [setUsername])
 
   const inputEmail = useCallback((event) => {
     setEmail(event.target.value)
@@ -25,24 +19,11 @@ const SignUp = () => {
     setPassword(event.target.value)
   }, [setPassword])
 
-  const inputConfirmPassword = useCallback((event) => {
-    setConfirmPassword(event.target.value)
-  }, [setConfirmPassword])
 
   return (
     <div className="c-section-container">
-      <h2 className="u-text__headline u-text-center">Sign up</h2>
+      <h2 className="u-text__headline u-text-center">サインイン</h2>
       <div className="module-spacer--medium" />
-      <TextInput
-        fullWidth={true}
-        label={"ユーザー名"}
-        multiline={false}
-        required={true}
-        rows={1}
-        value={username}
-        type={"text"}
-        onChange={inputUsername}
-      />
       <TextInput
         fullWidth={true}
         label={"メールアドレス"}
@@ -63,25 +44,15 @@ const SignUp = () => {
         type={"password"}
         onChange={inputPassword}
       />
-      <TextInput
-        fullWidth={true}
-        label={"パスワード（確認）"}
-        multiline={false}
-        required={true}
-        rows={1}
-        value={confirmPassword}
-        type={"password"}
-        onChange={inputConfirmPassword}
-      />
       <div className="module-spacer--medium" />
       <div className="center">
         <PrimaryButton
-          label={"Sign up"}
-          onClick={() => dispatch(signUp(username, email, password, confirmPassword))}
+          label={"Sign in"}
+          onClick={() => dispatch(signIn(email, password))}
         />
       </div>
     </div>
   )
 }
 
-export default SignUp
+export default SignIn
