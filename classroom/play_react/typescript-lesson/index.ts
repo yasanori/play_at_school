@@ -61,3 +61,71 @@ let unionType: number | string = 10;
 // string型を代入すれば使用できる
 unionType = "String"
 unionType.toUpperCase()
+
+//リテラル型
+const apple: "apple" = "apple"
+// constにした時点でリテラル型になる
+const ringo = "ringo"
+
+// typeエイリアス
+type size = "small" | "medium" | "large"
+let drinkSize: size = "small"
+
+// 関数に型は引数と戻り値
+// 戻り値のみ型推論が効く
+// 引数には型注釈をしないとanyになる
+function add(num1: number, num2: number): number {
+  return num1 + num2
+}
+
+add(5, 8)
+
+// void 何も返さない
+function consoleHello(): void {
+  console.log("hello")
+}
+
+// andefined returnを明示的に使用した場合のみ使用できる
+// 基本使わない
+// function consoleHello(): void {
+//   console.log("hello")
+//   return;
+// }
+
+// 関数の型注釈
+const anotherAdd: (n1: number, n2: number) => number = add
+
+const allowAdd: (num: number) => number = num => num * 2;
+// 右辺にもかけるが可読性に疑問
+// const allowAdd = (number: number): number => number * 2;
+
+// callback関数を引数に取る場合
+function doubleAndHandle(num: number, cb: (num: number) => number): void {
+  const doubleNum = cb(num * 2)
+}
+
+doubleAndHandle(2, doubleNum => {
+  return doubleNum
+})
+
+// unknown型
+// anyより少し厳しい型
+let unknownInout: unknown;
+let anyInput: any;
+
+// なんでも入れることができる
+unknownInout = 'hello';
+let text = 'text';
+// 以下はエラー
+// text = unknownInout
+
+// 型でifを用いる時に便利
+if (typeof unknownInout === 'string') {
+  text = unknownInout;
+}
+
+// never型
+// throwなどundefinedすら何も返さない
+function error(message: string): never {
+  throw new Error(message)
+}
