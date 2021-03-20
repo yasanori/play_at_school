@@ -1,3 +1,4 @@
+"use strict";
 var hasValue = true;
 var count = 10;
 var float = 3.14;
@@ -94,6 +95,7 @@ if (typeof unknownInout === 'string') {
     text = unknownInout;
 }
 // never型
+// throwなどundefinedすら何も返さない
 function error(message) {
     throw new Error(message);
 }
