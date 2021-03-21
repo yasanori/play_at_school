@@ -68,5 +68,15 @@
     // デフォルトでode_modulesはexclude指定されている
     // 自分でexcludeを編集した場合は上書きされてnode_modulesの指定が解除されるため明示的に指定する必要がある
     "node_modules"
-  ]
+  ],
+  // コマンドに含むファイルを指定する
+  // include,files共に何も指定していない場合はデフォルトの全ファイル
+  // excludeに記述されている場合はexcludeが優先される
+  "include": [
+    "**/index.ts"
+  ],
+  // includeとほとんど同じ
+  // ワイルドカードが使えない（絶対・相対パス指定）
+  // excludeに記述されていてもfilesが優先される
+  "files": []
 }
