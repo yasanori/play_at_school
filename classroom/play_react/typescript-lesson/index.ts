@@ -45,8 +45,8 @@ const coffe = {
 
 // anyが絡むと型づけが完全に無効となる
 let anything: any = true;
-anything = 'hello';
-anything.aaa = {}
+// anything = 'hello';
+// anything.aaa = {}
 
 // string型にも代入できてしまう
 let strBanana = "banana"
@@ -129,3 +129,16 @@ if (typeof unknownInout === 'string') {
 function error(message: string): never {
   throw new Error(message)
 }
+
+class Person {
+  name: string;
+  constructor(initName: string) {
+    this.name = initName;
+  }
+  greeting() {
+    console.log(`hello, my name is ${this.name}`)
+  }
+}
+
+const Jack = new Person("jack");
+Jack.greeting();

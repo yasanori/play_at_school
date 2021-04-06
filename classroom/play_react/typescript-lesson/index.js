@@ -34,8 +34,8 @@ var coffe = {
 // coffe.size = "SHORT"
 // anyが絡むと型づけが完全に無効となる
 var anything = true;
-anything = 'hello';
-anything.aaa = {};
+// anything = 'hello';
+// anything.aaa = {}
 // string型にも代入できてしまう
 var strBanana = "banana";
 strBanana = anything;
@@ -99,3 +99,14 @@ if (typeof unknownInout === 'string') {
 function error(message) {
     throw new Error(message);
 }
+var Person = /** @class */ (function () {
+    function Person(initName) {
+        this.name = initName;
+    }
+    Person.prototype.greeting = function () {
+        console.log("hello, my name is " + this.name);
+    };
+    return Person;
+}());
+var Jack = new Person("jack");
+Jack.greeting();
