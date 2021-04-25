@@ -6,8 +6,26 @@
 // world.sayHello(root)
 
 
-import { primitiveSample, anySample, unknownSample } from './basic';
+// プリミティ型
+// import { primitiveSample, anySample, unknownSample } from './basic';
+// primitiveSample();
+// anySample();
+// unknownSample();
 
-primitiveSample();
-anySample();
-unknownSample();
+
+import { logMessage, logMessage2, logMessage3, alowaysThrowError } from './function/basic';
+logMessage("hello.")
+logMessage2("hello.")
+logMessage3("hello.")
+// alowaysThrowError("I'm error.")
+
+import { isUserSignedIn, isUserSignedIn2, sumProductsPrice } from './function/parameters';
+isUserSignedIn("signIn")
+isUserSignedIn("signIn", "nagao")
+isUserSignedIn("signOut")
+
+isUserSignedIn2("signIn")
+isUserSignedIn2("signIn", "nagao")
+isUserSignedIn2("signOut")
+
+console.log(sumProductsPrice(100, 200, 50))
