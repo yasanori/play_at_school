@@ -6,7 +6,8 @@
 // world.sayHello(root)
 
 
-import { primitiveSample, anySample } from './basic';
+import { primitiveSample, anySample, unknownSample } from './basic';
 
 primitiveSample();
 anySample();
+unknownSample();
