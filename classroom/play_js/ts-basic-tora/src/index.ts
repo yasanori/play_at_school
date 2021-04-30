@@ -31,8 +31,11 @@
 // console.log(sumProductsPrice(100, 200, 50))
 
 
-import objectSample from './object/object';
-import typeAliasSample from './object/alias';
+// import objectSample from './object/object';
+// import typeAliasSample from './object/alias';
 
-objectSample()
-typeAliasSample()
+// objectSample()
+// typeAliasSample()
+
+import arraySample from './array/array'
+arraySample()
