@@ -108,7 +108,6 @@ const Auth: React.FC = () => {
     }
   };
 
-
   const signInEmail = async () => {
     await auth.signInWithEmailAndPassword(email, password);
   };
